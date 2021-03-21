@@ -11,7 +11,7 @@ contract Token is ERC721, Ownable {
 
     event Mint(address from, address to, uint256 id);
 
-    constructor() ERC721("Decentreelized Token", "TRE") {
+    constructor() ERC721("Decentreelized Token", "TREE") {
         _owner = msg.sender;
     }
 
@@ -25,7 +25,7 @@ contract Token is ERC721, Ownable {
         _mint(address(this), _tokenId);
         _setTokenURI(_tokenId, _tokenURI);
 
+        emit Mint(address(0), to, _tokenId);       
+        
         return true;
-
-        emit Mint(address(0), to, _tokenId);
     }
